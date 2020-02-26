@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../public/css/style.css">
+
+</head>
+
+<body>
+
+    <div id="main-container">
+
+        <header>
+            <div id="logo">
+
+
+            </div>
+
+            <div id="search">
+                <form id="search" enctype="application/x-www-form-urlencoded">
+                    <p>test</p>
+                    <input type="text" name="mySearch" id="mySearch">
+                    <input type="submit" value="Submit">
+                </form>
+
+                <!-- <script>
+                    localStorage.setItem("serialNumber", "abc123def456");
+                </script> -->
+
+            </div>
+
+            <div id="login2">
+                <div class="container bar">
+                    <label class="floatLeft" for="navBtn"><span></span></label>
+                </div>
+                <div class="container">
+                    <input type="checkbox" class="navBtn" id="navBtn" />
+                    <nav>
+                        <div class="row">
+                            <div class="form-p">
+                                <form action="/signup" method="post">
+                                    <div>
+                                        <label>Username:</label>
+                                        <input type="text" name="username1" id="login-username" /><br/>
+                                    </div>
+                                    <div>
+                                        <label>Password:</label>
+                                        <input type="password" name="password" />
+                                    </div>
+                                    <div><input type="submit" value="Sign Up" /></div>
+                                </form>
+
+                                <p><a href="">Forget your password ?</a></p>
+                    </nav>
+                    </div>
+
+                    </div>
+
+
+
+
+
+
+
+        </header>
+        <!-- close header -->
+        <div id="MainBody">
+
+            <div id="LeftBox">
+
+                <h1>left</h1>
+                <div id="productLoader"></div>
+                <div id="content">
+
+                </div>
+
+
+            </div>
+            <div id="RightBox">
+
+                <h1 id="main-title">Sign Up</h1>
+                <p id="subtitle">It only takes a minute!</p>
+                <form action="/register" method="post">
+
+
+                    <div id="username" class="placeholders">
+                        <label id="pl_Fname" for="text" class> Username</label>
+                        <input required id="pl_username" type="text" name="username2" maxlength="8" placeholder="Enter your username...">
+                    </div>
+
+                    <div id="Fname" class="placeholders " style="margin-top: 20px;">
+                        <label id="pl_Fname" for="text" class> First Name</label>
+                        <input required id="pl_Fname" type="Fname" name="firstName" placeholder="Enter your Name...">
+                    </div>
+
+                    <div id="Lname" class="placeholders " style="margin-top: 20px;">
+                        <label id="pl_Lname" for="text" class> Last Name</label>
+                        <input required id="pl_Lname" type="Lname" name="lastName" placeholder="Enter your Last Name...">
+                    </div>
+
+                    <div id="email" class="placeholders " style="margin-top: 20px;">
+                        <label id="pl_email" for="text" class> Email</label>
+                        <input required id="pl_email" type="email" name="emailAddress" placeholder="Enter your email...">
+                    </div>
+
+                    <div id="password" class="placeholders" style="margin-top: 20px;">
+                        <label id="pl_password" for="text" class="">Password</label>
+                        <input id="password" name="password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Password"
+                            required>
+                    </div>
+                    <div id="password" class="placeholders" style="margin-top: 20px;">
+                        <label id="pl_password" for="text" class="">Password</label>
+                        <input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" placeholder="Verify Password" required>
+                    </div>
+
+
+                    <br>
+
+                    <div><input type="submit" value="register" /></div>
+
+                </form>
+
+
+
+
+            </div>
+            <!-- rightbox -->
+            <h1>Test</h1>
+        </div>
+        <!-- mainBody -->
+
+
+
+
+        <footer>
+
+            <h1>Footer</h1>
+
+
+        </footer>
+        <!-- close footer -->
+
+        </div>
+        <!-- main container -->
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+</script>
+<script src="../public/assets/scripts.js"></script>
+<script src="../routes/index.js"></script>
+
+<script>
+    $(document).ready(function(){
+        var email,pass;
+        console.log('session');
+        $("#submit").click(function(){
+            email=$("#username").val();
+            pass=$("#password").val();
+            $.post("/login",{username:username,pass:pass},function(data){
+        
+            });
+        });
+    });
+    </script>
+
+</html>
