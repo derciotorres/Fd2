@@ -110,7 +110,7 @@ router.post('/search', function(req, res) {
 
 router.post('/signup', function(req, res) {
     var results;
-    var username = req.body.username1;
+    var username = req.body.username;
     var password = req.body.password;
     sql.connect(db).then(pool => {
         return pool.request()
@@ -127,6 +127,12 @@ router.post('/signup', function(req, res) {
             sess.username = req.body.username;
             console.log(sess);
             res.redirect('/preferences');
+            httpMsgs.sendJSON(req, res, {
+                from: 'Server',
+                username: sess.username
+            });
+            console.log(username, 'heheheheh')
+            
         } else {
             console.log('error')
         }
@@ -172,6 +178,4 @@ router.post('/register', function(req, res) {
 });
 module.exports = router;
 
-router.post('/preferences', function(req, res) {
-    console.log('test');
-})
+
